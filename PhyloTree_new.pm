@@ -497,11 +497,12 @@ sub get_lca{
 =cut
 sub print_tree{
     my ($self, $outfile, $subtree) = @_;
-    
-    my @data = _print_tree_Helper($self -> get_root_node());
 
-	print "@data\n";
-    if($data[-1] !~ /\)$/ || $data[0] !~ /^\(/){
+    my $root = $self -> get_root_node();
+    my @root_descendents = $root -> get_descendents();
+    my @data = _print_tree_Helper($root);
+
+    if((scalar(@root_descendents) <= 2 || $subtree) && ($data[-1] !~ /\)$/ || $data[0] !~ /^\(/)){
         $data[0] = "(" . $data[0];
         $data[-1] .= ")";
     }
