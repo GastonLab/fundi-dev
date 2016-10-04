@@ -344,9 +344,8 @@ sub runMixtureModel{
 
     print "\n=============================================\n\n";
 	
-    # Subtree files should already be sorted but this guarantees that subgroups
-    # are together and that for each subgroup the alignment file comes first [i]
-    # and the treefile comes next [j]
+    # Subtree files should already be sorted but this guarantees that subgroups are together and that for each
+    # subgroup the alignment file comes first [i] and the treefile comes next [j]
     my @sorted_out = sort @subfiles;
     my @subtree_lh_fh;
     print "Evaluating subtrees...(@sorted_out)\n";
@@ -1234,7 +1233,7 @@ sub create_new_tree_file{
 			if ($replaced eq 'true'){ 
 				print "Successfully replaced old branch length $branch_len with $temp_branch_length in $tree_file \n";
 				my $subtree_out = "$tree_file" . "." . "$temp_branch_length" . ".nw"; 
-				$new_tree -> print_tree($subtree_out, 1);
+				$new_tree -> print_tree($subtree_out, 0);
 				push @list_of_new_trees, $subtree_out;
 				$temp_branch_length = $temp_branch_length + $step;
 			}

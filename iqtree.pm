@@ -41,7 +41,7 @@ our $VERSION = '0.1';
 sub calliqtree{
     my $string = shift;
     print "Calling iqtree-omp with the following: $string\n";
-    `/opt/perun/iqtree-omp-1.5.0-beta/iqtree-omp $string`;
+    `iqtree-omp $string`;
 }
 
 

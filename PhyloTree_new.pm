@@ -20,7 +20,7 @@
   PhyloTree_new: An object to represent a phylogenetic tree. This moduel serves to
   collect together the nodes of a tree and provides methods for handling trees
   
-  This moduel currently will only read and handle a single tree, and is not meant
+  This module currently will only read and handle a single tree, and is not meant
   for use with multiple trees unless they are all in seperate files and called
   individually. If there are multiple tress in a single file only the first tree
   will be read from the file.
@@ -281,6 +281,11 @@ sub set_all_nodes{
         		my $label = $tokens[$i];
         		$nodes[$#nodes] -> set_name($label);
                 $nodes[$#nodes] -> set_bootstrap($label);
+            }elsif($tokens[($i + 1)] eq ';'){
+                # Root node with bootstrap value
+                my $label = $tokens[$i];
+        		$nodes[$#nodes] -> set_name($label);
+                $nodes[$#nodes] -> set_bootstrap($label);
         	}else{
                 #branchlength for internal node
         		my $branchlength = $tokens[$i];
@@ -494,17 +499,13 @@ sub print_tree{
     my ($self, $outfile, $subtree) = @_;
     
     my @data = _print_tree_Helper($self -> get_root_node());
-	#print "&&&&&&&&&&& first: $data[0]   last: $data[-1] \n";
+
 	print "@data\n";
     if($data[-1] !~ /\)$/ || $data[0] !~ /^\(/){
         $data[0] = "(" . $data[0];
         $data[-1] .= ")";
     }
-	
-	#if (index($data, "):") != -1) {
-	#	substr($data,index($data, "):"), length($data)-index($data, "):"),");");
-	#	substr $data, 0, 1, "";
-	#}
+
     my $tree_string = join(',', @data);
     $tree_string .= ";\n";
     
