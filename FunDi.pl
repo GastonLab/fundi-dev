@@ -768,7 +768,7 @@ sub treeParse{
     my @subtrees = @{$subtree_ref};
     my @outfiles;
     my @lcas;
-	print "creating phylotree \n";
+	print "creating phylotree using tree $intree\n";
 	
     my $tree = new PhyloTree_new(file => "$intree");  # $intree = "$inalign" . "_optimized" . ".treefile"
     $tree -> read_tree();

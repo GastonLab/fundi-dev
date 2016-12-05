@@ -160,7 +160,8 @@ sub read_tree{
     foreach(@trees){
         $_ = $_ . ";";
     }
-    
+
+    print "Reading tree string $trees[0]\n";
     $self -> {_nodes} = set_all_nodes($self, $trees[0]);
 }
 
