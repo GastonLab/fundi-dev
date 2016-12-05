@@ -301,8 +301,8 @@ sub set_all_nodes{
 
     print "Parsed Nodes:\n";
     foreach(@nodes){
-        print "" . $_ -> get_node_id > ": ";
-        print "" . $_ -> get_name . "\n";
+        print "Node ID: " . $_ -> get_node_id > "\n";
+        print "Node Name: " . $_ -> get_name . "\n";
         my @desc = $_ -> get_descendents();
         if(@desc){
             $_ -> set_internal();
