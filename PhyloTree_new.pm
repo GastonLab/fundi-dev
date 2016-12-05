@@ -194,7 +194,7 @@ sub set_all_nodes{
     for(my $i = 0; $i < length($tree_string); $i++){
         $token .= substr($tree_string, $i, 1);
         if($token =~ $DELIMITER){
-            print "Found delimiter $token\n";
+            # print "Found delimiter $token\n";
             if(length($token) > 1){
                 my $end = substr($token, (length($token)-1), 1);
                 $token =~ s/[():,;]//;
@@ -298,7 +298,11 @@ sub set_all_nodes{
         	}
         }
     }
+
+    print "Parsed Nodes:\n";
     foreach(@nodes){
+        print "" . $_ -> get_node_id > ": ";
+        print "" . $_ -> get_name . "\n";
         my @desc = $_ -> get_descendents();
         if(@desc){
             $_ -> set_internal();
