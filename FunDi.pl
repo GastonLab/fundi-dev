@@ -774,6 +774,7 @@ sub treeParse{
     $tree -> read_tree();
 
     my @taxa = $tree -> get_leaf_nodes();
+    print "Parsed tree with " . scalar(@taxa) . "leaf nodes\n";
 	print "entering loop ===================\n";  ####
 	
     my $done = 0;
