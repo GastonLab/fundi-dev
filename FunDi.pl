@@ -774,7 +774,7 @@ sub treeParse{
     $tree -> read_tree();
 
     my @taxa = $tree -> get_leaf_nodes();
-    print "Parsed tree with " . scalar(@taxa) . "leaf nodes\n";
+    print "Parsed tree with " . scalar(@taxa) . " leaf nodes\n";
 	print "entering loop ===================\n";  ####
 	
     my $done = 0;
@@ -789,11 +789,11 @@ sub treeParse{
 			#print "this is the value of temp_subtree:" . @temp_subtree . "\n";  ####
 			#print "this is the value of taxa:" . @taxa . "\n";  ####
             foreach my $node (@temp_subtree){
-				#print "this is the value of node:" . $node . "\n";  ####
+				print "this is the value of node:" . $node . "\n";  ####
                 foreach my $taxon (@taxa){
                     my $taxon_name = $taxon -> get_name();
                     if($taxon_name eq $node){
-						#print "this is the value of taxon_name:" . $taxon_name . "\n";  ####
+						print "this is the value of taxon_name:" . $taxon_name . "\n";  ####
                         push @subtree_taxa, $taxon;
                     }
                 }
