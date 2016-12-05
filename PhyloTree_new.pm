@@ -427,8 +427,11 @@ sub get_lca{
     my @parents;
     my @nodes = @{$nodes_ref};
     my @ancestor_2d;
-    
+
+    print "Iterating over nodes\n";
     foreach(@nodes){
+        print $_ -> get_node_id();
+        print $_ -> get_name();
         my @ancestors = $_ -> get_all_ancestors();
         push @ancestor_2d, \@ancestors;
     }
