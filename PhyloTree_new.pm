@@ -161,7 +161,7 @@ sub read_tree{
         $_ = $_ . ";";
     }
 
-    print "Reading tree string $trees[0]\n";
+    # print "Reading tree string $trees[0]\n";
     $self -> {_nodes} = set_all_nodes($self, $trees[0]);
 }
 
@@ -207,6 +207,9 @@ sub set_all_nodes{
     }
     
     shift @tokens;
+
+    print "Tokens:\n";
+    print @tokens;
     
     
     my $branch = 0;
