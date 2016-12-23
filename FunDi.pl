@@ -729,7 +729,8 @@ sub optimizeRho{
     push @values, \@site_loglhs; 
 	my @tab = split( /\./ ,$opt_b);
 	if (scalar(@tab) >4 ){
-		#$branch_opt = $tab[6].".".$tab[7];
+		# $branch_opt = $tab[6].".".$tab[7];
+		# $branch_opt = $tab[3].".".$tab[4];
 		$branch_opt = $tab[3].".".$tab[4];
 		#Taking the branch_opt minus the last step as we always do a step forward
 		if ($branch_opt - $step > 0){
